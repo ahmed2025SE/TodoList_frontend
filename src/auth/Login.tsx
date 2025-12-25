@@ -2,13 +2,14 @@ import { useState } from "react";
 import { login } from "../api/auth";
 import { Link } from "react-router-dom";    
 import type { LoginRequest } from "../types/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [form, setForm] = useState<LoginRequest>({
     username: "",
     password: "",
   });
-
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,12 +27,12 @@ export default function Login() {
 
   try {
     const res = await login(form);
-
+  
     localStorage.setItem("token", res.data.token);
     localStorage.setItem("user", JSON.stringify(res.data.user));
 
     console.log("Login success");
-    
+    navigate("/mylists"); 
 
   } catch (err: any) {
     setError(err.message || "Login failed");
