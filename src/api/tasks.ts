@@ -2,10 +2,7 @@ import api from "./apiClient";
 import type { ApiResponse } from "../types/api";
 import type { Task } from "../types/task";
 
-/* =========================
-   GET /api/tasks
-   (All tasks + search + list filter)
-========================= */
+
 export const getTasks = async (params?: {
   search?: string;
   list?: string;
@@ -14,10 +11,7 @@ export const getTasks = async (params?: {
   return res.data;
 };
 
-/* =========================
-   POST /api/tasks
-   (Create task)
-========================= */
+
 export const createTask = async (data: {
   todo_list_id: number;
   title: string;
@@ -28,10 +22,7 @@ export const createTask = async (data: {
   return res.data;
 };
 
-/* =========================
-   PUT /api/tasks/{id}
-   (Update task)
-========================= */
+
 export const updateTask = async (
   id: number,
   data: Partial<{
@@ -45,9 +36,7 @@ export const updateTask = async (
   return res.data;
 };
 
-/* =========================
-   DELETE /api/tasks/{id}
-========================= */
+
 export const deleteTask = async (
   id: number
 ): Promise<ApiResponse<null>> => {
@@ -55,9 +44,7 @@ export const deleteTask = async (
   return res.data;
 };
 
-/* =========================
-   GET /api/tasks-completed
-========================= */
+
 export const getCompletedTasks = async (): Promise<
   ApiResponse<Task[]>
 > => {
@@ -65,9 +52,7 @@ export const getCompletedTasks = async (): Promise<
   return res.data;
 };
 
-/* =========================
-   GET /api/tasks-upcoming
-========================= */
+
 export const getUpcomingTasks = async (): Promise<
   ApiResponse<Task[]>
 > => {

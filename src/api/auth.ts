@@ -20,3 +20,7 @@ export async function signup(
   const response = await api.post("/signup", payload);
   return response.data;
 }
+
+export async function logout() {
+  return await api.post("/logout");
+}
