@@ -32,7 +32,7 @@ export default function Login() {
     localStorage.setItem("user", JSON.stringify(res.data.user));
 
     console.log("Login success");
-    navigate("/mylists"); 
+    navigate("/home"); 
 
   } catch (err: any) {
     setError(err.message || "Login failed");
