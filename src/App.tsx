@@ -3,6 +3,9 @@ import Login from "./auth/Login";
 import Signup from "./auth/Signup";
 import MyLists from "./pages/MyLists";
 import ListDetails from "./pages/ListDetails";
+import Home from "./pages/Home";
+import Completed from "./pages/Completed";
+import Upcoming from "./pages/Upcoming";
 
 export default function App() {
   return (
@@ -18,6 +21,11 @@ export default function App() {
         
       <Route path="/mylists" element={<MyLists />} />
       <Route path="/lists/:id" element={<ListDetails />} />
+
+       <Route path="/home" element={<Home />} />
+    
+      <Route path="/completed" element={<Completed />} />
+      <Route path="/upcoming" element={<Upcoming />} />
     </Routes>
   );
 }
